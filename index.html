@@ -1,337 +1,322 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio profissional de Gabriel Chagas, estudante de Engenharia de Software e profissional de TI.">
-    <title>Gabriel Chagas | Portfólio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabriel Chagas | Portfólio</title>
+<meta name="description" content="Portfólio profissional de Gabriel Chagas, estudante de Engenharia de Software e profissional de TI.">
+<meta property="og:title" content="Gabriel Chagas | Portfólio">
+<meta property="og:description" content="Estudante de Engenharia de Software e profissional de TI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<style>
+/* ===== Tokens ===== */
+:root{
+  --bg:#F3F6F8; --surface:#FFFFFF; --ink:#0E1B2A; --muted:#51606F;
+  --azure:#0F6CBD; --azure-soft:#E3EFFA; --line:#D6DEE6; --amber:#B25E00; --amber-soft:#FFF0DB;
+  --radius:14px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.65}
+h1,h2,h3,h4,h5{font-family:"Bricolage Grotesque",sans-serif;letter-spacing:-.02em;line-height:1.1}
+a{color:var(--azure)}
+:focus-visible{outline:3px solid var(--azure);outline-offset:3px;border-radius:6px}
+p{max-width:68ch}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+/* ===== Navbar ===== */
+.nav-wrap{position:sticky;top:0;z-index:50;background:rgba(243,246,248,.86);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .25s}
+.nav-wrap.scrolled{border-color:var(--line)}
+.navbar-brand{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.4rem;color:var(--ink)}
+.navbar-brand span{color:var(--azure)}
+.nav-link{color:var(--muted);font-weight:500;border-radius:8px;padding:.45rem .8rem!important;transition:color .2s,background .2s}
+.nav-link:hover,.nav-link.active{color:var(--azure);background:var(--azure-soft)}
 
-    <style>
-        :root {
-            --bg: #0b1120;
-            --surface: #111c31;
-            --primary: #38bdf8;
-            --text: #e5edf8;
-            --muted: #9aabc2;
-        }
+/* ===== Hero ===== */
+.hero{padding:5.5rem 0 4.5rem}
+.hero-tag{color:var(--muted);font-size:.9rem;font-weight:500;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;margin-bottom:1rem}
+.hero h2{font-size:clamp(1.15rem,2.2vw,1.55rem);font-weight:500;color:var(--azure);margin-bottom:1.2rem;line-height:1.35}
+.hero p.lead{color:var(--muted);font-size:1.12rem}
+.btn-main{background:var(--azure);color:#fff;border-radius:999px;padding:.8rem 1.6rem;font-weight:600;border:2px solid var(--azure);transition:transform .2s,background .2s}
+.btn-main:hover{background:#0B5A9E;color:#fff;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border-radius:999px;padding:.8rem 1.6rem;font-weight:600;border:2px solid var(--ink);transition:transform .2s,background .2s,color .2s}
+.btn-ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.topo{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1rem;box-shadow:0 20px 50px -30px rgba(14,27,42,.4)}
+.topo svg{width:100%;height:auto;display:block}
+.topo text{font-family:"IBM Plex Sans";font-size:13px;fill:var(--muted)}
+.topo .t-strong{fill:var(--ink);font-weight:600}
+.topo .draw{stroke-dasharray:6 6;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-24}}
+.intro{animation:rise .8s ease both}
+.intro.d2{animation-delay:.12s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-        html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+/* ===== Seções ===== */
+section{padding:5rem 0}
+.sec-title{font-size:clamp(2rem,4vw,2.9rem);font-weight:800;margin-bottom:2rem}
+.sec-title::after{content:"";display:block;width:56px;height:5px;border-radius:5px;background:var(--azure);margin-top:.9rem}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;height:100%}
+.panel h5{font-size:1.2rem;font-weight:700;margin-bottom:.6rem}
+.panel p{color:var(--muted);margin-bottom:0}
+.panel.hl{background:var(--ink);border-color:var(--ink)}
+.panel.hl h5{color:#fff}
+.panel.hl p{color:#C4D0DC}
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: Arial, sans-serif;
-        }
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.chip{background:var(--azure-soft);color:#0A4D88;border-radius:999px;padding:.28rem .85rem;font-size:.86rem;font-weight:500}
+.tech{display:flex;align-items:center;gap:.55rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.6rem 1rem;font-weight:500;transition:border-color .2s,transform .2s}
+.tech:hover{border-color:var(--azure);transform:translateY(-2px)}
+.tech i{font-size:1.5rem}
+.tech .bi-ico{font-size:1.5rem;color:var(--azure);font-style:normal}
 
-        .navbar {
-            background: rgba(11, 17, 32, .94);
-            backdrop-filter: blur(12px);
-        }
+/* projetos */
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.7rem;height:100%;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+.proj:hover{border-color:var(--azure);box-shadow:0 14px 34px -22px rgba(15,108,189,.6)}
+.proj.main{border-left:6px solid var(--azure)}
+.proj h5{font-size:1.3rem;font-weight:700;margin-bottom:.6rem}
+.proj p{color:var(--muted);flex-grow:1}
+.status{align-self:flex-start;background:var(--amber-soft);color:var(--amber);border-radius:999px;padding:.28rem .85rem;font-size:.86rem;font-weight:600}
+.link-btn{align-self:flex-start;font-weight:600;text-decoration:none;border-bottom:2px solid var(--azure)}
+.link-btn:hover{background:var(--azure-soft)}
 
-        .navbar-brand, .nav-link { color: var(--text) !important; }
-        .nav-link:hover { color: var(--primary) !important; }
+/* timeline */
+.timeline{position:relative;padding-left:2rem;border-left:3px solid var(--line);margin:0}
+.t-item{position:relative;padding-bottom:2rem}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{content:"";position:absolute;left:calc(-2rem - 9px);top:.45rem;width:15px;height:15px;border-radius:50%;background:var(--azure);border:3px solid var(--bg)}
+.t-item h5{font-size:1.3rem;font-weight:700;margin-bottom:.2rem}
+.t-item .org{font-weight:600;color:var(--azure);margin-bottom:.4rem}
+.t-item p{color:var(--muted);margin-bottom:0}
 
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            background: radial-gradient(circle at 80% 30%, #12345b 0%, transparent 35%);
-        }
+/* contato e rodapé */
+.contact{background:var(--ink);color:#fff;border-radius:24px;padding:3.5rem 2rem;text-align:center}
+.contact h2{font-size:clamp(2rem,4vw,3rem);font-weight:800}
+.contact p{color:#C4D0DC;margin:1rem auto 2rem}
+.contact .btn-light{border-radius:999px;font-weight:600;padding:.75rem 1.5rem}
+.contact .btn-outline-light{border-radius:999px;font-weight:600;padding:.75rem 1.5rem}
+footer{padding:2.5rem 0;color:var(--muted);font-size:.92rem;text-align:center}
 
-        .highlight { color: var(--primary); }
-
-        .section { padding: 90px 0; }
-
-        .section-title {
-            font-weight: 700;
-            margin-bottom: 35px;
-        }
-
-        .card-custom {
-            background: var(--surface);
-            border: 1px solid #263751;
-            color: var(--text);
-            border-radius: 16px;
-            height: 100%;
-            transition: transform .3s, border-color .3s, box-shadow .3s;
-        }
-
-        .card-custom:hover {
-            transform: translateY(-7px);
-            border-color: var(--primary);
-            box-shadow: 0 12px 35px rgba(56, 189, 248, .10);
-        }
-
-        .text-muted-custom { color: var(--muted); }
-
-        .btn-primary-custom {
-            background: var(--primary);
-            color: #07111e;
-            border: none;
-            font-weight: 700;
-        }
-
-        .btn-primary-custom:hover {
-            background: #7dd3fc;
-            color: #07111e;
-        }
-
-        .skill {
-            display: inline-block;
-            background: #172943;
-            border: 1px solid #2c4564;
-            color: #ccecff;
-            padding: 9px 14px;
-            border-radius: 30px;
-            margin: 5px;
-            font-size: .9rem;
-        }
-
-        .icon-box {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity .7s ease, transform .7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        a { text-decoration: none; }
-        footer { border-top: 1px solid #263751; }
-    </style>
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .intro,.topo .draw{animation:none}
+  *{transition:none!important}
+}
+</style>
 </head>
-
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#inicio">GC<span class="highlight">.</span></a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
-                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-                <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#formacao">Formação</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-            </ul>
-        </div>
+<header class="nav-wrap" id="topbar">
+  <nav class="navbar navbar-expand-lg container">
+    <a class="navbar-brand" href="#inicio">GC<span>.</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#formacao">Formação</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
     </div>
-</nav>
-
-<header class="hero" id="inicio">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <p class="highlight fw-bold">TECNOLOGIA • INFRAESTRUTURA • DESENVOLVIMENTO</p>
-                <h1 class="display-3 fw-bold mb-3">Olá, sou <span class="highlight">Gabriel Chagas.</span></h1>
-                <h2 class="h4 text-muted-custom mb-4">Estudante de Engenharia de Software e profissional de TI.</h2>
-                <p class="lead text-muted-custom mb-4">
-                    Tenho interesse em infraestrutura, redes, sistemas e desenvolvimento de soluções tecnológicas.
-                    Busco evoluir continuamente por meio de estudos e projetos práticos.
-                </p>
-                <a href="#projetos" class="btn btn-primary-custom btn-lg me-2">Ver projetos</a>
-                <a href="#contato" class="btn btn-outline-light btn-lg">Entrar em contato</a>
-            </div>
-            <div class="col-lg-4 text-center mt-5 mt-lg-0">
-                <i class="bi bi-code-slash highlight" style="font-size: 10rem;"></i>
-            </div>
-        </div>
-    </div>
+  </nav>
 </header>
 
-<section class="section" id="sobre">
-    <div class="container reveal">
-        <h2 class="section-title">Sobre mim<span class="highlight">.</span></h2>
-        <div class="row g-4">
-   <div class="col-md-6 reveal"><div class="panel"><i class="bi bi-cloud-check icon"></i><h5 class="mt-3">Laboratório de Infraestrutura e Azure</h5><p class="muted">Laboratório prático de estudos em cloud e infraestrutura, com recursos Azure, máquinas virtuais Windows Server, redes virtuais, sub-redes, regras NSG, PowerShell e Azure CLI. Inclui experimentos com identidade e Active Directory.</p><span class="tag">Microsoft Azure</span><span class="tag">PowerShell</span><span class="tag">Windows Server</span><span class="tag">Redes</span><p class="mt-3 mb-0"><a href="https://github.com/$Owner" target="_blank">Ver projetos no GitHub <i class="bi bi-arrow-up-right"></i></a></p></div></div>
-            <div class="col-lg-8">
-                <p class="text-muted-custom fs-5">
-                    Sou estudante da área de tecnologia e atuo como estagiário de TI na CM Capital Markets.
-                    Tenho contato com rotinas de suporte técnico, configuração de equipamentos,
-                    sistemas corporativos e atividades relacionadas à infraestrutura de TI.
-                </p>
-                <p class="text-muted-custom fs-5">
-                    Meu objetivo é aprofundar meus conhecimentos em redes, servidores,
-                    administração de ambientes Windows e serviços em nuvem, desenvolvendo
-                    uma base técnica sólida e documentando minha evolução por meio de projetos.
-                </p>
-            </div>
-            <div class="col-lg-4">
-                <div class="card-custom p-4">
-                    <h5 class="highlight">Objetivo profissional</h5>
-                    <p class="text-muted-custom mb-0">
-                        Evoluir na área de infraestrutura e administração de sistemas,
-                        ampliando conhecimentos em cloud computing, automação e segurança.
-                    </p>
-                </div>
-            </div>
+<main>
+<!-- INÍCIO -->
+<section id="inicio" class="hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <p class="hero-tag intro">TECNOLOGIA • INFRAESTRUTURA • DESENVOLVIMENTO</p>
+        <h1 class="intro d2">Olá, sou Gabriel Chagas.</h1>
+        <h2 class="intro d2">Estudante de Engenharia de Software e profissional de TI.</h2>
+        <p class="lead intro d2">Tenho interesse em infraestrutura, redes, sistemas e desenvolvimento de soluções tecnológicas. Busco evoluir continuamente por meio de estudos e projetos práticos.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4 intro d2">
+          <a class="btn btn-main" href="#projetos">Ver projetos</a>
+          <a class="btn btn-ghost" href="#contato">Entrar em contato</a>
         </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="topo intro d2" aria-hidden="true">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="384" height="284" rx="16" fill="#F3F6F8" stroke="#0F6CBD" stroke-width="2" stroke-dasharray="2 0"/>
+            <text x="24" y="34" class="t-strong">Rede virtual</text>
+            <rect x="30" y="52" width="160" height="210" rx="12" fill="#E3EFFA" stroke="#0F6CBD"/>
+            <text x="44" y="78" class="t-strong">Sub-rede A</text>
+            <rect x="46" y="96" width="128" height="50" rx="8" fill="#fff" stroke="#D6DEE6"/>
+            <text x="60" y="126">VM Windows Server</text>
+            <rect x="46" y="160" width="128" height="50" rx="8" fill="#fff" stroke="#D6DEE6"/>
+            <text x="60" y="190">Active Directory</text>
+            <rect x="46" y="224" width="128" height="26" rx="8" fill="#fff" stroke="#D6DEE6"/>
+            <text x="60" y="242">PowerShell</text>
+            <rect x="214" y="52" width="160" height="210" rx="12" fill="#fff" stroke="#D6DEE6"/>
+            <text x="228" y="78" class="t-strong">Sub-rede B</text>
+            <rect x="230" y="96" width="128" height="50" rx="8" fill="#E3EFFA" stroke="#D6DEE6"/>
+            <text x="244" y="126">Azure CLI</text>
+            <rect x="230" y="160" width="128" height="50" rx="8" fill="#E3EFFA" stroke="#D6DEE6"/>
+            <text x="244" y="190">Regras NSG</text>
+            <path class="draw" d="M190 170 H214" stroke="#0F6CBD" stroke-width="3" fill="none"/>
+          </svg>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="section" id="habilidades" style="background:#0e1829;">
-    <div class="container reveal">
-        <h2 class="section-title">Habilidades e tecnologias<span class="highlight">.</span></h2>
-
-        <div class="row g-4">
-   <div class="col-md-6 reveal"><div class="panel"><i class="bi bi-cloud-check icon"></i><h5 class="mt-3">Laboratório de Infraestrutura e Azure</h5><p class="muted">Laboratório prático de estudos em cloud e infraestrutura, com recursos Azure, máquinas virtuais Windows Server, redes virtuais, sub-redes, regras NSG, PowerShell e Azure CLI. Inclui experimentos com identidade e Active Directory.</p><span class="tag">Microsoft Azure</span><span class="tag">PowerShell</span><span class="tag">Windows Server</span><span class="tag">Redes</span><p class="mt-3 mb-0"><a href="https://github.com/$Owner" target="_blank">Ver projetos no GitHub <i class="bi bi-arrow-up-right"></i></a></p></div></div>
-            <div class="col-md-4">
-                <div class="card-custom p-4">
-                    <i class="bi bi-hdd-network icon-box"></i>
-                    <h5>Infraestrutura e redes</h5>
-                    <p class="text-muted-custom">Conceitos de redes, suporte técnico, Windows, Active Directory e administração de sistemas.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-custom p-4">
-                    <i class="bi bi-cloud icon-box"></i>
-                    <h5>Cloud e automação</h5>
-                    <p class="text-muted-custom">Estudos práticos com Microsoft Azure, máquinas virtuais, PowerShell e serviços de infraestrutura.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-custom p-4">
-                    <i class="bi bi-code-square icon-box"></i>
-                    <h5>Desenvolvimento</h5>
-                    <p class="text-muted-custom">HTML, CSS, Bootstrap, lógica de programação, Git e organização de projetos.</p>
-                </div>
-            </div>
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <h2 class="sec-title">Sobre mim.</h2>
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <p class="fs-5">Sou estudante da área de tecnologia e atuo como estagiário de TI na CM Capital Markets. Tenho contato com rotinas de suporte técnico, configuração de equipamentos, sistemas corporativos e atividades relacionadas à infraestrutura de TI.</p>
+        <p class="fs-5 text-secondary">Meu objetivo é aprofundar meus conhecimentos em redes, servidores, administração de ambientes Windows e serviços em nuvem, desenvolvendo uma base técnica sólida e documentando minha evolução por meio de projetos.</p>
+      </div>
+      <div class="col-lg-5">
+        <div class="panel hl">
+          <h5>Objetivo profissional</h5>
+          <p>Evoluir na área de infraestrutura e administração de sistemas, ampliando conhecimentos em cloud computing, automação e segurança.</p>
         </div>
-
-        <div class="mt-4">
-            <span class="skill">HTML5</span>
-            <span class="skill">CSS3</span>
-            <span class="skill">Bootstrap</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">PowerShell</span>
-            <span class="skill">Microsoft Azure</span>
-            <span class="skill">Windows Server</span>
-            <span class="skill">Active Directory</span>
-            <span class="skill">Git</span>
-            <span class="skill">GitHub</span>
-        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="section" id="projetos">
-    <div class="container reveal">
-        <h2 class="section-title">Projetos<span class="highlight">.</span></h2>
-        <div class="row g-4">
-   <div class="col-md-6 reveal"><div class="panel"><i class="bi bi-cloud-check icon"></i><h5 class="mt-3">Laboratório de Infraestrutura e Azure</h5><p class="muted">Laboratório prático de estudos em cloud e infraestrutura, com recursos Azure, máquinas virtuais Windows Server, redes virtuais, sub-redes, regras NSG, PowerShell e Azure CLI. Inclui experimentos com identidade e Active Directory.</p><span class="tag">Microsoft Azure</span><span class="tag">PowerShell</span><span class="tag">Windows Server</span><span class="tag">Redes</span><p class="mt-3 mb-0"><a href="https://github.com/$Owner" target="_blank">Ver projetos no GitHub <i class="bi bi-arrow-up-right"></i></a></p></div></div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="card-custom p-4">
-                    <i class="bi bi-droplet icon-box"></i>
-                    <h5>Consumo de Água</h5>
-                    <p class="text-muted-custom">Projeto de desenvolvimento voltado ao acompanhamento e controle do consumo de água.</p>
-                    <a href="https://github.com/gabrielchagas-dev/consumo-agua" target="_blank" rel="noopener" class="highlight">Ver repositório <i class="bi bi-arrow-up-right"></i></a>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="card-custom p-4">
-                    <i class="bi bi-cloud-check icon-box"></i>
-                    <h5>Laboratório Azure</h5>
-                    <p class="text-muted-custom">Estudos práticos de infraestrutura em nuvem, máquinas virtuais, redes e administração de recursos.</p>
-                    <span class="text-muted-custom small">Em desenvolvimento</span>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="card-custom p-4">
-                    <i class="bi bi-pc-display icon-box"></i>
-                    <h5>Laboratório Windows Server</h5>
-                    <p class="text-muted-custom">Prática de administração de sistemas, identidade, políticas e serviços de rede.</p>
-                    <span class="text-muted-custom small">Em desenvolvimento</span>
-                </div>
-            </div>
-
-        </div>
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="container">
+    <h2 class="sec-title">Habilidades e tecnologias.</h2>
+    <div class="row g-4 mb-4">
+      <div class="col-md-4"><div class="panel"><h5>Infraestrutura e redes</h5><p>Conceitos de redes, suporte técnico, Windows, Active Directory e administração de sistemas.</p></div></div>
+      <div class="col-md-4"><div class="panel"><h5>Cloud e automação</h5><p>Estudos práticos com Microsoft Azure, máquinas virtuais, PowerShell e serviços de infraestrutura.</p></div></div>
+      <div class="col-md-4"><div class="panel"><h5>Desenvolvimento</h5><p>HTML, CSS, Bootstrap, lógica de programação, Git e organização de projetos.</p></div></div>
     </div>
+    <div class="d-flex flex-wrap gap-3">
+      <div class="tech"><i class="devicon-html5-plain colored"></i>HTML5</div>
+      <div class="tech"><i class="devicon-css3-plain colored"></i>CSS3</div>
+      <div class="tech"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</div>
+      <div class="tech"><i class="devicon-javascript-plain colored"></i>JavaScript</div>
+      <div class="tech"><i class="devicon-powershell-plain colored"></i>PowerShell</div>
+      <div class="tech"><i class="devicon-azure-plain colored"></i>Microsoft Azure</div>
+      <div class="tech"><i class="devicon-windows11-original colored"></i>Windows Server</div>
+      <div class="tech"><span class="bi-ico">&#9881;</span>Active Directory</div>
+      <div class="tech"><i class="devicon-git-plain colored"></i>Git</div>
+      <div class="tech"><i class="devicon-github-original"></i>GitHub</div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="formacao" style="background:#0e1829;">
-    <div class="container reveal">
-        <h2 class="section-title">Formação e experiência<span class="highlight">.</span></h2>
-        <div class="row g-4">
-   <div class="col-md-6 reveal"><div class="panel"><i class="bi bi-cloud-check icon"></i><h5 class="mt-3">Laboratório de Infraestrutura e Azure</h5><p class="muted">Laboratório prático de estudos em cloud e infraestrutura, com recursos Azure, máquinas virtuais Windows Server, redes virtuais, sub-redes, regras NSG, PowerShell e Azure CLI. Inclui experimentos com identidade e Active Directory.</p><span class="tag">Microsoft Azure</span><span class="tag">PowerShell</span><span class="tag">Windows Server</span><span class="tag">Redes</span><p class="mt-3 mb-0"><a href="https://github.com/$Owner" target="_blank">Ver projetos no GitHub <i class="bi bi-arrow-up-right"></i></a></p></div></div>
-            <div class="col-md-6">
-                <div class="card-custom p-4">
-                    <i class="bi bi-mortarboard icon-box"></i>
-                    <h5>Engenharia de Software</h5>
-                    <p class="text-muted-custom">Anhanguera — Ensino superior, modalidade EaD.</p>
-                    <hr>
-                    <h5>Desenvolvimento de Sistemas</h5>
-                    <p class="text-muted-custom mb-0">ETEC — Curso técnico em andamento.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card-custom p-4">
-                    <i class="bi bi-briefcase icon-box"></i>
-                    <h5>Estagiário de TI</h5>
-                    <p class="highlight mb-1">CM Capital Markets</p>
-                    <p class="text-muted-custom">Atuação em suporte técnico, configuração de equipamentos, sistemas corporativos e rotinas de TI.</p>
-                </div>
-            </div>
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="container">
+    <h2 class="sec-title">Projetos.</h2>
+    <div class="row g-4">
+      <div class="col-12">
+        <div class="proj main">
+          <h5>Laboratório de Infraestrutura e Azure</h5>
+          <p>Laboratório prático de estudos em cloud e infraestrutura, com recursos Azure, máquinas virtuais Windows Server, redes virtuais, sub-redes, regras NSG, PowerShell e Azure CLI. Inclui experimentos com identidade e Active Directory.</p>
+          <div class="chips mb-3"><span class="chip">Microsoft Azure</span><span class="chip">PowerShell</span><span class="chip">Windows Server</span><span class="chip">Redes</span></div>
+          <a class="link-btn" href="https://github.com/gabrielchagas-dev" target="_blank" rel="noopener">Ver projetos no GitHub</a>
         </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="proj">
+          <h5>Consumo de Água</h5>
+          <p>Projeto de desenvolvimento voltado ao acompanhamento e controle do consumo de água.</p>
+          <a class="link-btn" href="https://github.com/gabrielchagas-dev/consumo-agua" target="_blank" rel="noopener">Ver repositório</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="proj">
+          <h5>Laboratório Azure</h5>
+          <p>Estudos práticos de infraestrutura em nuvem, máquinas virtuais, redes e administração de recursos.</p>
+          <span class="status">Em desenvolvimento</span>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="proj">
+          <h5>Laboratório Windows Server</h5>
+          <p>Prática de administração de sistemas, identidade, políticas e serviços de rede.</p>
+          <span class="status">Em desenvolvimento</span>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="section" id="contato">
-    <div class="container text-center reveal">
-        <h2 class="section-title">Vamos conversar<span class="highlight">?</span></h2>
-        <p class="text-muted-custom fs-5">Estou aberto a conexões, oportunidades e troca de conhecimentos na área de tecnologia.</p>
-        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
-            <a class="btn btn-primary-custom" href="https://github.com/gabrielchagas-dev" target="_blank" rel="noopener">
-                <i class="bi bi-github"></i> GitHub
-            </a>
-            <a class="btn btn-outline-light" href="https://www.linkedin.com/in/gabrielchagas-dev/" target="_blank" rel="noopener">
-                <i class="bi bi-linkedin"></i> LinkedIn
-            </a>
-            <a class="btn btn-outline-light" href="mailto:SEU-EMAIL@EXEMPLO.COM">
-                <i class="bi bi-envelope"></i> E-mail
-            </a>
-        </div>
+<!-- FORMAÇÃO -->
+<section id="formacao">
+  <div class="container">
+    <h2 class="sec-title">Formação e experiência.</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <h5>Estagiário de TI</h5>
+        <div class="org">CM Capital Markets</div>
+        <p>Atuação em suporte técnico, configuração de equipamentos, sistemas corporativos e rotinas de TI.</p>
+      </div>
+      <div class="t-item">
+        <h5>Engenharia de Software</h5>
+        <div class="org">Anhanguera</div>
+        <p>Ensino superior, modalidade EaD.</p>
+      </div>
+      <div class="t-item">
+        <h5>Desenvolvimento de Sistemas</h5>
+        <div class="org">ETEC</div>
+        <p>Curso técnico em andamento.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<footer class="py-4 text-center">
-    <p class="text-muted-custom mb-0">© <span id="ano"></span> Gabriel Chagas. Desenvolvido com HTML, CSS e Bootstrap.</p>
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+    <div class="contact">
+      <h2>Vamos conversar?</h2>
+      <p>Estou aberto a conexões, oportunidades e troca de conhecimentos na área de tecnologia.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a class="btn btn-light" href="https://github.com/gabrielchagas-dev" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-light" href="https://www.linkedin.com/in/gabrielchagas-dev/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-outline-light" href="mailto:sleorleor@gmail.com">E-mail</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">© Gabriel Chagas. Desenvolvido com HTML, CSS e Bootstrap.</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.getElementById("ano").textContent = new Date().getFullYear();
+  // Borda na barra ao rolar
+  const bar = document.getElementById('topbar');
+  addEventListener('scroll', () => bar.classList.toggle('scrolled', scrollY > 10), {passive:true});
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12 });
+  // Link ativo conforme a seção visível
+  const links = document.querySelectorAll('.nav-link');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section').forEach(s => obs.observe(s));
 
-    document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+  // Fecha o menu no celular ao clicar em um link
+  const menu = document.getElementById('menu');
+  links.forEach(l => l.addEventListener('click', () => {
+    if (menu.classList.contains('show')) bootstrap.Collapse.getInstance(menu).hide();
+  }));
 </script>
-
 </body>
 </html>
-
